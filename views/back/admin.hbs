@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-   <!-- bootstrap.min css -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<!-- Animate css -->
-<link rel="stylesheet" href="../css/animate.css">
-<!-- icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-
-<!-- Main Stylesheet -->
-<link rel="stylesheet" href="../css/estilos.css">
-    <title>Panel de control</title>
-</head>
+{{>head}}
 
 <body id="backend">
     <h1>Panel de control</h1>
@@ -88,30 +71,29 @@
                 </thead>
 
                 <tbody id="admin-productos">
+                    {{#each products}}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Lenovo X200</td>
-                        <td><img src="../../uploads/x1_carbon_4_3.jpg-1654801811279.jpg" alt="imagen de Lenovo X200">
+                        <th scope="row">{{id}}</th>
+                        <td>{{name}}</td>
+                        <td><img src='/assets/img/wines/{{picture}}' alt="imagen">
                         </td>
                         <td class="descripcion">
-                            <div>Es una lenovo requete ... CARAA! </div>
+                            <div>{{description}}</div>
                         </td>
                         <td class="caracteristicas">
-
-                            <ul>
-                                <li> i7 </li>
-                                <li> 11gen </li>
-                                <li> 256gb SSD </li>
-                                <li> 16 gb RAM </li>
+                            <ul class="list-unstyled">
+                               <li> {{country}} </li>
+                               <li> {{region}} </li>
+                               <li> {{dolarApeso price}} </li>
                             </ul>
                         </td>
-                        <td>$ 319.062,15 </td>
+                        <td>{{price}}</td>
                         <td>
-                            <a href="editar-producto.html">Editar </a><br>
-                            <a href="borrar/1">Borrar</a>
+                            <a href="editar-producto/{{id}}">Editar </a><br>
+                            <a href="borrar/{{id}}">Borrar</a>
                         </td>
                     </tr>
-
+                    {{/each}}
                 </tbody>
 
             </table>

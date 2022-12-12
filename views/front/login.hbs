@@ -5,7 +5,14 @@
 
 <body class="login">
 
+  <style>
+    .error{
+      background-color: brown;
+      color: aliceblue;
+      display: none;
 
+    }
+  </style>
   <main class="form-signin">
     <form action="login" method="post">
 
@@ -23,12 +30,34 @@
 
       <button class="w-100 btn btn-lg btn-info" type="submit">Entrar</button>
     </form>
+    <p class="error">USUARIO O CONTRASEÑA INCORRECTO</p>
 
     <a href="admin.html">IR A ADMIN (MODO DEV)</a>
 
   </main>
 
+  <script>
+    const usuario ="admin@test.com"
+    const pass ="admin"
 
+   
+    const button = document.querySelector('button')
+
+    button.addEventListener('click', (e)=>{
+      e.preventDefault()
+      const error = document.querySelector('.error')
+      const inputUsuario = document.querySelector('#username').value
+      const inputPass = document.querySelector('#password').value
+
+      if(usuario==inputUsuario && pass==inputPass){
+          window.location.href = "http://localhost:3000/admin";
+      }
+      else{
+        error.style.display='block'
+      }
+
+    })
+  </script>
 
 </body>
 
