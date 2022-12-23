@@ -15,3 +15,22 @@ hbs.registerHelper('dolarApeso',precio=>{
     let totalPesos = dolar * precio
     return new Intl.NumberFormat('es-AR',{style:'currency' , currency: 'ARS'}).format(totalPesos) 
 })
+
+hbs.registerHelper('listado', texto => {
+    let arr = texto.split(',')
+    let html = '<ul>'
+
+    for (item of arr){
+        html += `<li> ${item} <li>`
+    }
+    return html
+})
+
+hbs.registerHelper('check', valor =>{
+
+    if(valor == '1'){
+        return 'input type="checbox" name="destacado'
+    }
+    return 'input'
+})
+

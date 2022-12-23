@@ -5,27 +5,20 @@
         <!-- Navigation-->
         {{>nav}}
     <!-- Start Top Header Bar -->
-    <header class="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-xs-12 col-sm-4">
-                </div>
-                <div class="my-3 col-md-4 col-xs-12 col-sm-4 text-center">
-                    <span class="fs-2">LOGO</span>
-                </div>
-                <div class="col-md-4 col-xs-12 col-sm-4 d-flex justify-content-end align-items-center">
-                    <a href="../back/login.html">LOGIN </a>
-                </div>
-            </div>
-        </div>
-    </header><!-- End Top Header Bar -->
+    {{head}}
 
 
      <section class="page-section" id="contact">
+       
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    {{#if mostrar}}
+                        <div class='alert-{{clase}}'>
+                            <p>Mensage: {{mensage}}</p>
+                        </div>
+                    {{/if}}
                 </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
@@ -34,7 +27,7 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form action="contact" method="POST" id="contactForm">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -62,57 +55,13 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
                 </form>
             </div>
         </section>
 
-    <footer class="footer section text-center mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="social-media">
-                        <li>
-                            <a href="https://www.facebook.com/">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.twitter.com/">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright-text">Copyright &copy;2022. Contacto <a
-                            href="mailto:">santiago.acosta@bue.edu.ar</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    {{footer}}
     <!-- 
     Essential Scripts
     =====================================-->
