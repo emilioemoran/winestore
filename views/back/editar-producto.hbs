@@ -8,7 +8,7 @@
         
         <!-- Main Menu Section -->
         <div class="editar-producto mt-4">
-            <form action="/editar-producto/{{producto.id}}" method="post" >
+            <form action="/editar-producto/{{producto.id}}" method="post" enctype="multipart/form-data">
                 <div class="row">
 
                     <div class="col-12 col-md-6 col-lg-4">
@@ -29,11 +29,12 @@
 
 
                         <div class="mb-3 col-12 editar" id="imagenCargada">
+                            <label for="rutaImagen" class="form-label">Imagen</label>
                             <img src='/assets/img/wines/{{producto.picture}}' alt="" class="img-fluid">
-                            <input type="text" class="form-control" id="picture" value={{producto.picture}} name="picture"
-                                    style="display:none" accept=".png,.jpg,.jpeg" required>
-                            {{!-- <input class="form-control" type="file" id="picture" name="picture"
-                                style="display:none" accept=".png,.jpg,.jpeg" value={{producto.picture}}> --}}
+                            {{!-- <input type="text" class="form-control" id="picture" value={{producto.picture}} name="picture"
+                                    style="display:none" accept=".png,.jpg,.jpeg" required> --}}
+                            <input class="form-control" type="file" id="picture" name="picture"
+                                style="display:none" accept=".png,.jpg,.jpeg">
                         </div>
 
                     </div>
@@ -77,7 +78,7 @@
     <script>
         // https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications
         const contenedor = document.querySelector("#imagenCargada"),
-            elInput = document.querySelector("#imagenDeProducto");
+            elInput = document.querySelector("#picture");
 
         contenedor.addEventListener("click", function (e) {
             if (elInput) {

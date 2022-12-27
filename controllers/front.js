@@ -17,9 +17,7 @@ const indexGET = (req, res)=>{
     })
 }
 
-const loginGET = (req, res)=>{
-    res.render('login',{  })
-}
+
 
 const aboutGET = (req, res)=>{
     res.render('about',{
@@ -86,4 +84,4 @@ const teamGET = (req, res)=>{
 
 
 
-module.exports = { indexGET, aboutGET, contactGET, contactPOST, loginGET,teamGET}
+module.exports = { indexGET, aboutGET, contactGET, contactPOST,teamGET}

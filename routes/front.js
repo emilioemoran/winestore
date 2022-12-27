@@ -7,8 +7,6 @@ router.get('/',indexGET)
   
 router.get('/index', indexGET)
   
-router.get('/login',loginGET)
-  
 router.get('/about',aboutGET)
 
 router.get('/team',teamGET)

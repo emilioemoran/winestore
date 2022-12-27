@@ -6,7 +6,7 @@ const path = require('path')
 const rutasFront = require('./routes/front')
 const rutasBack = require('./routes/back')
 const bodyParser = require("body-parser");
-const products = require("./data/wines.json")
+const session = require('express-session')
 require ('./views/helpers/helpers.js')
 require('dotenv').config()
 
@@ -19,6 +19,14 @@ path.join('./views')
 ])
 
 hbs.registerPartials(__dirname + '/views/partials', function (err) {})
+
+
+app.use(session({
+  secret: 'sarasa',
+  resave: true,
+  saveUninitialized: false,
+  cookie: { maxAge: 300000 }
+}))
 
 app.use(express.static('public'))
 app.use(bodyParser.json());

@@ -1,10 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
-const{ adminGET, agregarProductoGET,editarProductoGET, agregarProductoPOST, editarProductoPOST,borrarProducto} = require('../controllers/back')
+const{ adminGET, agregarProductoGET,editarProductoGET, agregarProductoPOST, editarProductoPOST,borrarProducto, loginGET,loginPOST} = require('../controllers/back')
 
 
 router.get('/admin',adminGET)
+
+router.get('/login',loginGET)
+router.post('/login',loginPOST)
 
 router.get('/agregar-producto',agregarProductoGET)
 router.post('/agregar-producto',agregarProductoPOST)
