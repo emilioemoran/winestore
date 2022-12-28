@@ -9,5 +9,13 @@ const connection =mysql.createConnection({
     port:process.env.DB_PORT
 });
 
-connection.connect();
+connection.connect(err=>{
+    if(err)throw err
+    console.log('db esta conectada')
+});
+
+setInterval(function(){
+    connection.query('Select 1')
+},50000)
+
 module.exports =connection
